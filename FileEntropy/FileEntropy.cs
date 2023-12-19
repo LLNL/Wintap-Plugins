@@ -88,7 +88,7 @@ namespace FileEntropy
             string sql = "SELECT FileWrite.FileActivity.Path as FilePath, FileWrite.PID as PID, FileClose.EventTime as EventTime FROM pattern @SuppressOverlappingMatches [every FileWrite=WintapMessage(MessageType='File'AND ActivityType='WRITE' AND FileActivity.BytesRequested > 0)->FileClose=WintapMessage(MessageType='File' AND ActivityType='CLOSE' AND WintapMessage.PID=FileWrite.PID AND FileWrite.FileActivity.Path = FileActivity.Path) where timer:within(5 min)]";
             firstQuery.Query = sql;
             queries.Add(firstQuery);
-            WintapLogger.Log.Append("FileEntropy plugin start up completed. ", LogLevel.Always);
+            WintapLogger.Log.Append("FileEntropy plugin start up completed!", LogLevel.Always);
             return queries;
         }
 
