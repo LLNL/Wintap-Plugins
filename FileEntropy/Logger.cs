@@ -69,7 +69,7 @@ namespace FileEntropy
         {
             this.LogType = LogType.Overwrite;
             this.MaxSize = 3000000;
-            this.Verbosity = LogLevel.Always;
+            this.Verbosity = LogLevel.Debug;
             this.logDir = Environment.GetEnvironmentVariable("PROGRAMDATA") + "\\Wintap\\Logs";
             this.LogName = "FileEntropy";
             this.Init();
@@ -78,7 +78,7 @@ namespace FileEntropy
             Assembly exeName = Assembly.GetCallingAssembly();
             string[] logNameArray = exeName.FullName.Split(new Char[] { ',' });
             logName = logNameArray[0].ToString();
-            verbosity = LogLevel.Always;
+            verbosity = LogLevel.Debug;
             codeVersion = exeName.GetName().Version.ToString();
             pendingEntries = new ConcurrentQueue<LogEntry>();
             logIsOpen = true;
